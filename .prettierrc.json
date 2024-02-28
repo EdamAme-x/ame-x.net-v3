@@ -7,5 +7,15 @@
 	"trailingComma": "all",
 	"bracketSpacing": true,
 	"arrowParens": "avoid",
-	"proseWrap": "always"
+	"proseWrap": "always",
+    "plugins": ["prettier-plugin-astro-organize-imports"],
+    "overrides": [
+        {
+        "files": "*.astro",
+        "options": {
+            "parser": "astro"
+        }
+        }
+    ],
+    "astroOrganizeImportsMode": "All"
 }
