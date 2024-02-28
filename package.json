@@ -1,17 +1,31 @@
 {
-  "name": "xnet",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "astro": "^4.4.5",
-    "@astrojs/check": "^0.5.6",
-    "typescript": "^5.3.3"
-  }
+	"name": "ame-x.net",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro check && astro build",
+		"preview": "deno run --allow-net --allow-read --allow-env ./dist/server/entry.mjs",
+		"deno": "deno",
+		"astro": "astro",
+		"format": "prettier --write ./**/*.{ts,tsx,astro} --plugin=prettier-plugin-astro"
+	},
+	"dependencies": {
+		"@astrojs/check": "^0.5.6",
+		"@astrojs/deno": "^5.0.1",
+		"@astrojs/react": "^3.0.10",
+		"@types/react": "^18.2.60",
+		"@types/react-dom": "^18.2.19",
+		"astro": "^4.4.5",
+		"hono": "^4.0.8",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
+	"devDependencies": {
+		"prettier": "^3.2.5",
+		"prettier-plugin-astro": "^0.13.0",
+		"prettier-plugin-astro-organize-imports": "^0.4.3",
+		"typescript": "^5.3.3"
+	}
 }
