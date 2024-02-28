@@ -1,7 +1,7 @@
 # x-net-v3
 coming soon
 
-built with ❤ and 🦕 Deno and @amex2189
+built with ❤ and 🦕 Deno and @amex2189 's tech 
 
 - Frontend
   - Astro.js
