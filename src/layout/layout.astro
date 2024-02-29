@@ -25,7 +25,7 @@ const parseHash = (input: string, index = 2): string => {
 };
 
 const renderDate = new Date().toISOString();
-const renderHash = parseHash(renderDate + Astro.clientAddress + Astro.url);
+const renderHash = parseHash(crypto.randomUUID());
 
 ---
 
