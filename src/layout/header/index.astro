@@ -1,6 +1,8 @@
 ---
 import { ThemeSwitch } from "@/src/layout/theme/switch";
+import { Image } from "astro:assets";
 ---
-<header class="w-full p-2">
+<header class="w-full p-2 flex justify-between items-center fixed top-0 backdrop-blur-sm">
+    <Image src="/favicon.svg" alt="AMEX NET" width={48} height={48} />
     <ThemeSwitch client:idle />
 </header>
