@@ -3,6 +3,8 @@ import deno from "@astrojs/deno";
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
+import robotsTxt from "astro-robots-txt";
+import compress from "astro-compress";
 const PORT = 8080;
 
 
@@ -15,11 +17,11 @@ export default defineConfig({
   server: {
     port: PORT
   },
-  integrations: [react(), tailwind(), sitemap()],
+  integrations: [react(), tailwind(), sitemap(), robotsTxt(), compress()],
   site: "https://ame-x.net",
   resolve: {
     alias: {
-      crypto: 'crypto-js',
-    },
-  },
+      crypto: 'crypto-js'
+    }
+  }
 });

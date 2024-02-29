@@ -2,7 +2,9 @@
 import { SEO } from "astro-seo";
 import { ViewTransitions } from "astro:transitions";
 import StyleContainer from "./styleContainer.astro";
+import ThemeProvider from "./theme/provider.astro";
 import { MD6 } from "@/src/utils/md6";
+import Header from "./header/index.astro";
 
 interface Props {
 	title?: string;
@@ -68,8 +70,10 @@ const renderHash = parseHash(renderDate + Astro.clientAddress + Astro.url);
 		/>
 		<ViewTransitions />
 		<StyleContainer />
+		<ThemeProvider />
 	</head>
 	<body>
+		<Header />
 		<slot />
 	</body>
 </html>
