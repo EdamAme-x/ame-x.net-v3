@@ -21,12 +21,11 @@ const {
 const iconFullsizeURL = new URL(icon, Astro.url).href;
 
 const parseHash = (input: string, index = 2): string => {
-	return index <= 0 ? input : parseHash((MD6(encodeURIComponent(input))), index - 1);
+	return index <= 0 ? input : parseHash(MD6(encodeURIComponent(input)), index - 1);
 };
 
 const renderDate = new Date().toISOString();
 const renderHash = parseHash(crypto.randomUUID());
-
 ---
 
 <html lang="en_US">
@@ -67,7 +66,10 @@ const renderHash = parseHash(crypto.randomUUID());
 					{ rel: "icon", href: icon },
 					{ rel: "sitemap", href: "/sitemap-index.xml" },
 				],
-				meta: [{ name: "createdBy", content: "@amex2189" }, { name: "generator", content: Astro.generator }],
+				meta: [
+					{ name: "createdBy", content: "@amex2189" },
+					{ name: "generator", content: Astro.generator },
+				],
 			}}
 		/>
 		<ViewTransitions />
