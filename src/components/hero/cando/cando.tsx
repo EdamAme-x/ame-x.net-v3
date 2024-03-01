@@ -60,7 +60,7 @@ function ParallaxBackGround() {
 		gsap.fromTo(
 			trigger,
 			{
-				yPercent: 50
+				yPercent: 50,
 			},
 			{
 				yPercent: -50,
@@ -68,9 +68,9 @@ function ParallaxBackGround() {
 					trigger: trigger,
 					start: "top bottom",
 					end: "bottom top",
-					scrub: 1
-				}
-			}
+					scrub: 1,
+				},
+			},
 		);
 	}, []);
 
@@ -104,7 +104,7 @@ function IconObject({ name, className, ref }: { name: string; className?: string
 			src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/" + name + ".svg"}
 			className={cn("transition-all transiton-duration-300 drop-shadow-xl", className)}
 			style={{
-				filter: "drop-shadow(0 0 0.1rem white)"
+				filter: "drop-shadow(0 0 0.1rem white)",
 			}}
 			loading="lazy"
 			width={75}

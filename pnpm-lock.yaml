@@ -80,6 +80,9 @@ dependencies:
   react-dom:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
+  react-terminal-ui:
+    specifier: ^1.2.0
+    version: 1.2.0(react-dom@18.2.0)(react@18.2.0)
   react-type-animation:
     specifier: ^3.2.0
     version: 3.2.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
@@ -4563,6 +4566,16 @@ packages:
       invariant: 2.2.4
       react: 18.2.0
       tslib: 2.6.2
+    dev: false
+
+  /react-terminal-ui@1.2.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-MTPIrWoLGH46zk8yLd8c8YTqgixggvOsfDBmZf/iVJBgJU0RDgOqjlyYFnh6rRsERXh91+aXm6f5zc+eMoUgEA==}
+    peerDependencies:
+      react: '>16.13.0'
+      react-dom: '>16.13.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /react-type-animation@3.2.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0):

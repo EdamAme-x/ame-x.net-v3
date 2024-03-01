@@ -17,7 +17,7 @@ export const candoList = [
 			<a href={`https://github.com/EdamAme-x`} target="_blank">
 				<Button>All projects</Button>
 			</a>
-		)
+		),
 	},
 	{
 		title: "Create Server",
@@ -35,10 +35,11 @@ export const candoList = [
 		button: (
 			<a
 				href={`https://github.com/EdamAme-x?tab=repositories&q=&type=&language=typescript&sort=`}
-				target="_blank">
+				target="_blank"
+			>
 				<Button>All projects</Button>
 			</a>
-		)
+		),
 	},
 	{
 		title: "Create Desktop App",
@@ -55,10 +56,11 @@ export const candoList = [
 		button: (
 			<a
 				href={`https://github.com/EdamAme-x?tab=repositories&q=&type=&language=typescript&sort=`}
-				target="_blank">
+				target="_blank"
+			>
 				<Button>All projects</Button>
 			</a>
-		)
+		),
 	},
 	{
 		title: "Create Tools for anything",
@@ -77,6 +79,6 @@ export const candoList = [
 			<a href={`https://github.com/EdamAMe-x`} target="_blank">
 				<Button>All tools</Button>
 			</a>
-		)
-	}
+		),
+	},
 ];
