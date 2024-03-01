@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import EditorBlock from "./editorBlock.astro";
+import Whoami from "./whoami/index.astro";
 import { ProfessionTyper } from "./professionTyper";
 ---
 
@@ -27,6 +28,7 @@ import { ProfessionTyper } from "./professionTyper";
 	class="absolute top-0 left-0 z-[-1] w-full h-[75vh]"
 	loading={"eager"}
 />
+<Whoami />
 
 <style>
 	@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
