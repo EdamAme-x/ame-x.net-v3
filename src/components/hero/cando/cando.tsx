@@ -106,6 +106,7 @@ function IconObject({ name, className, ref }: { name: string; className?: string
 			style={{
 				filter: "drop-shadow(0 0 0.1rem white)"
 			}}
+			loading="lazy"
 			width={75}
 			height={75}
 			alt={name}

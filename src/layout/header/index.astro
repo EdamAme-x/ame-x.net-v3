@@ -1,9 +1,13 @@
 ---
 import { ThemeSwitch } from "@/src/layout/theme/switch";
+import { Nav } from "./nav";
 import { Image } from "astro:assets";
 ---
 
 <header class="w-full p-2 flex justify-between items-center fixed top-0 z-[2189] backdrop-blur-sm">
 	<Image src="/favicon.svg" alt="AMEX NET" width={48} height={48} loading={"eager"} />
-	<ThemeSwitch client:idle />
+	<div class="flex items-center gap-x-2">
+		<Nav client:idle />
+		<ThemeSwitch client:idle />
+	</div>
 </header>
