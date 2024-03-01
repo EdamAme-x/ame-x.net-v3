@@ -190,7 +190,9 @@ ${" " + `-`.repeat(len + 2)}
 											<TerminalOutput>
 												<div
 													dangerouslySetInnerHTML={{
-														__html: hljs.highlight("json", JSON.stringify(result, null, 2))
+														__html: hljs.highlight(JSON.stringify(result, null, 2), {
+															language: "json",
+														})
 															.value,
 													}}
 												></div>
@@ -314,8 +316,14 @@ ${" " + `-`.repeat(len + 2)}
 			</Terminal>
 			<style>
 				{`
+						#${uuid} {
+							border: 2.5px solid transparent;
+  							border-image: linear-gradient(to bottom right, #b827fccc 0%, #2c90fccc 25%, #b8fd33cc 50%, #fec837cc 75%, #fd1892cc 100%);
+							border-image-slice: 1;
+						}
+
 						#${uuid} .react-terminal-wrapper {
-							background: transparent !important;
+							background: var(--background) !important;
 							color: var(--foreground) !important;
 						}
 
