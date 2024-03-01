@@ -4,6 +4,7 @@ import { parseCurlToRequest } from "./parseCurlToFetch.ts";
 import hljs from "highlight.js/lib/core";
 import json from "highlight.js/lib/languages/json";
 import Terminal, { ColorMode, TerminalOutput } from "react-terminal-ui";
+import { Card } from "@/src/components/ui/card";
 
 hljs.registerLanguage("json", json);
 
@@ -283,8 +284,11 @@ ${" " + `-`.repeat(len + 2)}
 		}
 	}
 
+	const uuid = `scoped_${crypto.randomUUID()}`;
+	const height = "300px";
+
 	return (
-		<div className="container w-3/4 h-[200px] overflow-y-none opacity-[0.8]">
+		<Card className={"container w-3/4 h-[" + height + "] overflow-y-none opacity-75"} id={uuid}>
 			<Terminal
 				name="Amex Shell"
 				colorMode={ColorMode.Dark}
@@ -304,10 +308,22 @@ ${" " + `-`.repeat(len + 2)}
 				startingInputValue={
 					"curl -X GET " + (!isClient() ? "https://localhost" : window.location.origin) + "/api/myinfo"
 				}
-				height="300px"
+				height={height}
 			>
 				{terminalLineData}
 			</Terminal>
-		</div>
+			<style>
+				{`
+						#${uuid} .react-terminal-wrapper {
+							background: transparent !important;
+							color: var(--foreground) !important;
+						}
+
+						#${uuid} .react-terminal-line {
+							opacity: 1 !important;
+						}
+					`}
+			</style>
+		</Card>
 	);
 }

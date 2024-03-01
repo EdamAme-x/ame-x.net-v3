@@ -14,7 +14,9 @@ export function Cando() {
 				<ParallaxBackGround />
 				<Card className="w-4/5 sm:w-3/4 h-4/5 sm:h-3/4 min-h-[400px] bg-transparent backdrop-blur-sm">
 					<CardHeader>
-						<CardTitle>What I can do 🤔</CardTitle>
+						<CardTitle className="inline-flex gap-x-2">
+							What I can do <div className="animate-spin">🤔</div>
+						</CardTitle>
 					</CardHeader>
 					<CardContent className="w-full flex justify-center items-center">
 						<Carousel className="w-full max-w-xl md:max-w-3xl">

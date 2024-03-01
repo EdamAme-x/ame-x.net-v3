@@ -7,7 +7,7 @@ export function RecordCard() {
 			<SunIcon className="h-4 w-4" />
 			<AlertTitle className="font-bold mb-2">What do I have achievement ?</AlertTitle>
 			<AlertDescription className="text-xs md:text-sm my-1">
-				I have achivement in operating a service that serves 5k people a day.
+				I have achivement in operating a service that used by 5k people a day.
 			</AlertDescription>
 			<AlertDescription className="text-xs md:text-sm my-1">
 				The OSS I created has been used by people.
