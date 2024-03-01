@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import EditorBlock from "./editorBlock.astro";
 import { ProfessionTyper } from "./professionTyper";
 ---
 
@@ -16,6 +17,7 @@ import { ProfessionTyper } from "./professionTyper";
 		<h1 class="text-6xl font-bold text-gradient">AMEX NET.</h1>
 		<h2v class="text-xl text-raleway pt-5">I'm a <i><ProfessionTyper client:idle /></i></h2v>
 	</div>
+	<EditorBlock />
 </div>
 <Image
 	src="/svg/pattern.svg"
