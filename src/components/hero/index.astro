@@ -1,11 +1,20 @@
 ---
 import { Image } from "astro:assets";
+import { ProfessionTyper } from "./professionTyper";
 ---
 
+<div class="top-wave">
+	<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+		<path
+			d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+			class="shape-fill"></path>
+	</svg>
+</div>
 <div class="w-full min-h-[75vh] flex flex-wrap items-center">
 	<div class="w-1/2 h-full flex flex-col justify-center items-start pl-5">
-		<p class="text-3xl text-raleway">Welcome to</p>
-		<h1 class="text-6xl font-bold text-gradient">AMEX NET</h1>
+		<p class="text-2xl text-raleway">Welcome to</p>
+		<h1 class="text-6xl font-bold text-gradient">AMEX NET.</h1>
+		<h2v class="text-xl text-raleway pt-5">I'm a <i><ProfessionTyper client:idle /></i></h2v>
 	</div>
 </div>
 <Image
@@ -21,11 +30,7 @@ import { Image } from "astro:assets";
 	@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 
 	.text-gradient {
-		background-image: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 100%;
-		background-position: 0%;
+		@apply from-red-400 to-blue-400 bg-gradient-to-r bg-clip-text text-transparent;
 	}
 
 	.text-raleway {
@@ -33,5 +38,26 @@ import { Image } from "astro:assets";
 		font-optical-sizing: auto;
 		font-weight: 500;
 		font-style: normal;
+	}
+
+	.top-wave {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		width: 100%;
+		overflow: hidden;
+		line-height: 0;
+	}
+
+	.top-wave svg {
+		position: relative;
+		display: block;
+		width: calc(109% + 1.3px);
+		height: 142px;
+	}
+
+	.top-wave .shape-fill {
+		fill: #ffa9a920;
 	}
 </style>
