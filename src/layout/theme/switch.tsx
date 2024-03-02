@@ -20,7 +20,14 @@ export function ThemeSwitch() {
 	React.useEffect(() => {
 		const isDark =
 			theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
-		document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+		if (isDark) {
+			document.documentElement.classList.remove("light");
+			document.documentElement.classList.add("dark");
+		} else {
+			document.documentElement.classList.remove("dark");
+			document.documentElement.classList.add("light");
+		}
 	}, [theme]);
 
 	return (

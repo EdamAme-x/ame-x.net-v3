@@ -18,7 +18,7 @@ const scan = (e: string, a: RegExp, r: any) => {
 		let a = [],
 			r = "";
 		return (
-			scan(e, splitReg, ([e, t, s, o, d, c, i]: any[]) => {
+			scan(e, splitReg, ([_e, t, s, o, d, c, i]: any[]) => {
 				if (void 0 !== c) throw Error("Unmatched quote");
 				(r += t || (s || o || d).replace(/\\(?=.)/, "")), void 0 !== i && (a.push(r), (r = ""));
 			}),
@@ -59,7 +59,6 @@ const scan = (e: string, a: RegExp, r: any) => {
 		let a = { method: "GET", headers: {} },
 			r = "",
 			t = "",
-			s = "",
 			o = "";
 		rewrite(split(e)).forEach((e: string) => {
 			switch (!0) {
@@ -153,7 +152,7 @@ const scan = (e: string, a: RegExp, r: any) => {
 					}
 					break;
 				default:
-					s = e;
+					break;
 			}
 		}),
 			// @ts-ignore

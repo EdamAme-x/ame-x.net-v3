@@ -192,8 +192,7 @@ ${" " + `-`.repeat(len + 2)}
 													dangerouslySetInnerHTML={{
 														__html: hljs.highlight(JSON.stringify(result, null, 2), {
 															language: "json",
-														})
-															.value,
+														}).value,
 													}}
 												></div>
 											</TerminalOutput>

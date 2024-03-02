@@ -5,8 +5,10 @@ import { Image } from "astro:assets";
 ---
 
 <header class="w-full p-2 flex justify-between items-center fixed top-0 z-[2189] backdrop-blur-sm">
-	<Image src="/favicon.svg" alt="AMEX NET" width={48} height={48} loading={"eager"} />
-	<div class="flex items-center gap-x-2">
+	<a href="/">
+		<Image src="/favicon.svg" alt="AMEX NET" width={48} height={48} loading={"eager"} />
+	</a>
+	<div class="flex items-center gap-x-4 relative z-[9812]">
 		<Nav client:idle />
 		<ThemeSwitch client:idle />
 	</div>

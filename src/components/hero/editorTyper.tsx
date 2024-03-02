@@ -40,7 +40,7 @@ export function EditorTyper() {
 
 	return (
 		<div
-			className="backdrop-blur-sm rounded-lg shadow-lg dark:shadow-xl dark:shadow-white/10 px-2 py-1 h-full overflow-x-hidden"
+			className="backdrop-blur-lg bg-white/1 rounded-lg shadow-lg dark:shadow-xl dark:shadow-white/10 px-3 py-2 h-full overflow-x-hidden"
 			dangerouslySetInnerHTML={{
 				__html: `<pre><code class="language-typescript">${highlightedCode}</code></pre>`,
 			}}
