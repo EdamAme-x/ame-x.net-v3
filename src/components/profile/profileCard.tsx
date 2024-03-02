@@ -3,6 +3,17 @@ import { Separator } from "@/src/components/ui/separator";
 import { useEffect, useState } from "react";
 import { parseNumWithSplit } from "./parseNumWithSplit";
 import { Timeline } from "./timeline";
+import Particles from 'react-particles';
+import ParticlesParams from "./particles.json";
+
+function Particle() {
+    return (
+        <Particles
+            params={ParticlesParams as any}
+        />
+    )
+}
+
 const nitter = "https://nitter.mint.lgbt/amex2189";
 const zenn = "https://zenn.dev/ame_x";
 const github = "https://api.github.com/users/EdamAme-x";
@@ -72,16 +83,17 @@ export function ProfileCard() {
 	}, []);
 
 	return (
-		<div className="w-full">
+		<div className="w-full relative z-[2]">
+			<Particle />
 			<Avatar className="w-20 h-20 md:w-40 md:h-40 ml-[10%] md:ml-[15%]">
 				<AvatarImage src="https://avatars.githubusercontent.com/u/121654029?v=4" alt="@EdamAme-x" />
 				<AvatarFallback>AMEX</AvatarFallback>
 			</Avatar>
 			<Separator className="relative z-[-1] bottom-10 md:bottom-20" />
 			<div className="w-full min-h-[75vh] relative bottom-10 md:bottom-20 z-[-1] pt-10 md:pt-20 bg-card">
-				<p className="text-3xl font-bold ml-[10%] md:ml-[15%]">
+				<h1 className="text-3xl font-bold ml-[10%] md:ml-[15%]">
 					Ame-x <span className="text-gray-400 font-normal text-sm">(@amex2189)</span>
-				</p>
+				</h1>
 				<div className="ml-[10%] md:ml-[15%] pr-5 mx-auto h-full flex flex-col justify-center items-start">
 					<div>
 						<p className="mt-2 text-sm md:text-lg">

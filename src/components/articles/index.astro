@@ -1,0 +1,66 @@
+---
+import { Badge } from "@/src/components/ui/badge";
+
+const api = "https://zenn.dev/api/articles?username=ame_x&count=1000&order=latest";
+
+type Article = {
+	title: string;
+	emoji: string;
+	tags: string;
+	publishedAt: string;
+	like: number;
+	url: string;
+};
+
+const getArticles = async () => {
+	const response = await fetch(api);
+	const data = await response.json();
+	return data.articles;
+};
+
+const articles: Article[] = (await getArticles()).map(article => {
+	return {
+		title: article.title,
+		emoji: article.emoji,
+		tags: article.article_type,
+		publishedAt: article.published_at,
+		like: article.liked_count,
+		url: "https://zenn.dev" + article.path,
+	};
+});
+---
+
+<div class="w-full flex flex-col justify-center items-center mt-5">
+	<h1 class="text-3xl font-bold mt-10">Articles</h1>
+	<div class="w-full flex flex-wrap justify-center items-center my-5 px-5 gap-4">
+		{
+			articles.map(article => {
+				return (
+					<a
+						href={article.url}
+						target="_blank"
+						class="w-[300px] min-h-[225px] flex flex-col justify-start items-center bg-[hsl(var(--card))] rounded-lg"
+					>
+						<div class="w-full h-[125px] flex flex-col justify-center items-center p-2 bg-[hsl(var(--foreground))] rounded-t-lg">
+                            <div class="transform scale-[3]">{article.emoji}</div>    
+                            <div class="relative bottom-1/2 left-[40%]">
+                                <Badge client:load className={article.tags === "tech" ? "bg-rose-500" : "bg-sky-500 hover:bg-sky-600"}>
+                                    {article.tags}    
+                                </Badge>
+                            </div>
+                        </div>
+						<p class="w-full h-[100px] p-2 flex justify-center items-center">{article.title}</p>
+                        <div class="w-full p-2 flex justify-between items-center">
+                            <Badge client:load className={"bg-gray-200 hover:bg-gray-300"}>
+                                    ❤ <span class="ml-1 text-gray-800">{article.like}</span>
+                                </Badge>
+                                <Badge client:load className={"bg-gray-200 hover:bg-gray-300"}>
+                                    ⏱ <span class="ml-1 text-gray-800">{new Date(article.publishedAt).toLocaleDateString().split("/").reverse().join("/")}</span>
+                                </Badge>
+                        </div>
+					</a>
+				);
+			})
+		}
+	</div>
+</div>

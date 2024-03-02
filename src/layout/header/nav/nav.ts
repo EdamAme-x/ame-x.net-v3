@@ -7,4 +7,8 @@ export const navContext = [
 		title: "Profile",
 		href: "/profile",
 	},
+	{
+		title: "Articles",
+		href: "/articles",
+	},
 ];

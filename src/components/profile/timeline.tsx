@@ -48,7 +48,8 @@ export function Timeline() {
 						icon: icon ?? "https://avatars.githubusercontent.com/u/121654029?v=4",
 						content: post.querySelector("description")?.textContent ?? "Faild to load",
 						date: post.querySelector("pubDate")?.textContent ?? "Faild to load",
-						url: post.querySelector("link")?.textContent ?? "Faild to load",
+						url:
+							"https://twitter.com" + new URL(post.querySelector("link")?.textContent ?? "").pathname,
 					};
 				});
 
@@ -65,7 +66,7 @@ export function Timeline() {
 	}, []);
 
 	return (
-		<div className="w-full px-5">
+		<div className="w-full px-5 relative z-[3]">
 			{posts.map(post => (
 				<Fragment key={post.url}>
 					<TimelinePost
@@ -83,11 +84,11 @@ export function Timeline() {
 
 function TimelinePost({ name, icon, content, date, url }: post) {
 	return (
-		<div className="w-full" onClick={() => window.open(url, "_blank")}>
+		<a href={url} target="_blank" rel="noreferrer">
 			<TimelinePostHeader name={name} icon={icon} date={date} />
 			<TimelinePostContent content={content} />
 			<Separator className="my-2" />
-		</div>
+		</a>
 	);
 }
 
@@ -106,5 +107,19 @@ function TimelinePostHeader({ name, icon, date }: { name: string; icon: string; 
 }
 
 function TimelinePostContent({ content }: { content: string }) {
-	return <div className="w-full mt-1" dangerouslySetInnerHTML={{ __html: content }}></div>;
+	const uuid = `__scoped_${crypto.randomUUID()}`;
+	return <>
+		 <div className="w-full mt-1 word-break" id={uuid} dangerouslySetInnerHTML={{ __html: content }}></div>
+		 <style>
+			{
+				`
+					#${uuid} > * {
+						width: 100%;
+						max-width: 100%;
+						word-break: break-word;
+					}
+				`
+			}
+		 </style>
+	</>
 }
