@@ -27,6 +27,45 @@ export function Nav() {
 								</NavigationMenuItem>
 							))}
 						</ul>
+						<div className="flex justify-end items-center mt-1">
+							<a
+								href="https://github.com/EdamAme-x"
+								target="_blank"
+								rel="noopener noreferrer"
+								title="GitHub"
+							>
+								<img
+									src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
+									alt="GitHub"
+									width={32}
+									height={32}
+									className="rounded-full mx-2 p-1 dark:filter dark:invert"
+								/>
+							</a>
+							<a
+								href="https://twitter.com/amex2189"
+								target="_blank"
+								rel="noopener noreferrer"
+								title="Twitter"
+							>
+								<img
+									src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/twitter/twitter-original.svg"
+									alt="GitHub"
+									width={32}
+									height={32}
+									className="rounded-full mx-2 p-1 dark:filter dark:invert"
+								/>
+							</a>
+							<a href="https://zenn.dev/ame_x" target="_blank" rel="noopener noreferrer" title="Zeen">
+								<img
+									src="https://static.zenn.studio/images/logo-transparent.png"
+									alt="GitHub"
+									width={32}
+									height={32}
+									className="rounded-full mx-2 p-1"
+								/>
+							</a>
+						</div>
 					</NavigationMenuContent>
 				</NavigationMenuItem>
 			</NavigationMenuList>
