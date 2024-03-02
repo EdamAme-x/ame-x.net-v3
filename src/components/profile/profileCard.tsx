@@ -6,6 +6,7 @@ import { Timeline } from "./timeline";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import ParticleOptions from "./particles.json"
+import { Badge } from "@/src/components/ui/badge";
 
 function Particle() {
     const [ init, setInit ] = useState(false);
@@ -98,10 +99,17 @@ export function ProfileCard() {
 	return (
 		<div className="w-full relative z-[2]">
 			<Particle />
+			<div className="w-full flex justify-between">
 			<Avatar className="w-20 h-20 md:w-40 md:h-40 ml-[10%] md:ml-[15%]">
 				<AvatarImage src="https://avatars.githubusercontent.com/u/121654029?v=4" alt="@EdamAme-x" />
 				<AvatarFallback>AMEX</AvatarFallback>
 			</Avatar>
+			<a href="https://twitter.com/amex2189" target="_blank" className="w-5 h-5 md:w-20 md:h-20 pt-5 relative right-20 md:right-50">
+				<Badge variant="secondary" className="text-sm md:text-lg bg-[hsl(var(--foreground))] text-[hsl(var(--background))] hover:bg-[hsl(var(--foreground))] font-medium py-2 px-5 mt-10">
+					Contact
+				</Badge>
+			</a>
+			</div>
 			<Separator className="relative z-[-1] bottom-10 md:bottom-20" />
 			<div className="w-full min-h-[75vh] relative bottom-10 md:bottom-20 z-[-1] pt-10 md:pt-20 bg-card">
 				<h1 className="text-3xl font-bold ml-[10%] md:ml-[15%]">
