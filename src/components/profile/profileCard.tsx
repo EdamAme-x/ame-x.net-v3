@@ -3,16 +3,29 @@ import { Separator } from "@/src/components/ui/separator";
 import { useEffect, useState } from "react";
 import { parseNumWithSplit } from "./parseNumWithSplit";
 import { Timeline } from "./timeline";
-import Particles from '@tsparticles/react';
-import ParticlesParams from "./particles.json";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
+import ParticleOptions from "./particles.json"
 
 function Particle() {
+    const [ init, setInit ] = useState(false);
+
+	useEffect(() => {
+        initParticlesEngine(async (engine) => {
+            await loadSlim(engine);
+        }).then(() => {
+            setInit(true);
+        });
+    }, []);
+
     return (
-        <Particles
-            params={ParticlesParams as any}
+         init && <Particles
+            id="tsparticles"
+            options={ParticleOptions as any}
+			className="absolute z-[-2]"
         />
-    )
-}
+	);
+};
 
 const nitter = "https://nitter.mint.lgbt/amex2189";
 const zenn = "https://zenn.dev/ame_x";
