@@ -3,7 +3,7 @@ import { Separator } from "@/src/components/ui/separator";
 import { useEffect, useState } from "react";
 import { parseNumWithSplit } from "./parseNumWithSplit";
 import { Timeline } from "./timeline";
-import Particles from 'react-particles';
+import Particles from '@tsparticles/react';
 import ParticlesParams from "./particles.json";
 
 function Particle() {
