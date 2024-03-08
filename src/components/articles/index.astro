@@ -18,7 +18,7 @@ const getArticles = async () => {
 	return data.articles;
 };
 
-const articles: Article[] = (await getArticles()).map(article => {
+const articles: Article[] = (await getArticles()).map((article: any) => {
 	return {
 		title: article.title,
 		emoji: article.emoji,
