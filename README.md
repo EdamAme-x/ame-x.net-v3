@@ -1,6 +1,6 @@
 # amex.net-v3
 
-coming soon...
+coming soon... (定期テストによる没収の為)
 
 built with ❤ and 🦕 Deno and @amex2189 's tech
 
