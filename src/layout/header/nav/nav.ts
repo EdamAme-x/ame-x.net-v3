@@ -18,5 +18,5 @@ export const navContext = [
 	{
 		title: "Request",
 		href: "/request",
-	}
+	},
 ];

@@ -42,22 +42,28 @@ const articles: Article[] = (await getArticles()).map((article: any) => {
 						class="w-[300px] min-h-[225px] flex flex-col justify-start items-center bg-[hsl(var(--card))] border-2 border-[hsl(var(--border))] rounded-lg"
 					>
 						<div class="w-full h-[125px] flex flex-col justify-center items-center p-2 bg-[hsl(var(--foreground))] border-2 border-[hsl(var(--foreground))] rounded-t-lg">
-                            <div class="transform scale-[3]">{article.emoji}</div>    
-                            <div class="relative bottom-1/2 left-[40%]">
-                                <Badge client:load className={article.tags === "tech" ? "bg-rose-500" : "bg-sky-500 hover:bg-sky-600"}>
-                                    {article.tags}    
-                                </Badge>
-                            </div>
-                        </div>
+							<div class="transform scale-[3]">{article.emoji}</div>
+							<div class="relative bottom-1/2 left-[40%]">
+								<Badge
+									client:load
+									className={article.tags === "tech" ? "bg-rose-500" : "bg-sky-500 hover:bg-sky-600"}
+								>
+									{article.tags}
+								</Badge>
+							</div>
+						</div>
 						<p class="w-full h-[100px] p-2 flex justify-center items-center">{article.title}</p>
-                        <div class="w-full p-2 flex justify-between items-center">
-                            <Badge client:load className={"bg-gray-200 hover:bg-gray-300"}>
-                                    ❤ <span class="ml-1 text-gray-800">{article.like}</span>
-                                </Badge>
-                                <Badge client:load className={"bg-gray-200 hover:bg-gray-300"}>
-                                    ⏱ <span class="ml-1 text-gray-800">{new Date(article.publishedAt).toLocaleDateString().split("/").reverse().join("/")}</span>
-                                </Badge>
-                        </div>
+						<div class="w-full p-2 flex justify-between items-center">
+							<Badge client:load className={"bg-gray-200 hover:bg-gray-300"}>
+								❤ <span class="ml-1 text-gray-800">{article.like}</span>
+							</Badge>
+							<Badge client:load className={"bg-gray-200 hover:bg-gray-300"}>
+								⏱{" "}
+								<span class="ml-1 text-gray-800">
+									{new Date(article.publishedAt).toLocaleDateString().split("/").reverse().join("/")}
+								</span>
+							</Badge>
+						</div>
 					</a>
 				);
 			})

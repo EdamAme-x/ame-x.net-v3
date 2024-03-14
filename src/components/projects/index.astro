@@ -3,8 +3,7 @@ import { Button } from "@/src/components/ui/button";
 
 const pinnedApi = "https://github-pinned-api.deno.dev/EdamAme-x";
 
-type pinnedCtx = {"title": string,
-"url": string,"star": string,"description":string}
+type pinnedCtx = { title: string; url: string; star: string; description: string };
 
 const getProjects = async (): Promise<pinnedCtx[]> => {
 	const response = await fetch(pinnedApi);
@@ -15,17 +14,19 @@ const getProjects = async (): Promise<pinnedCtx[]> => {
 	data = data.map((project: pinnedCtx) => {
 		return {
 			title: project.title,
-			url: project.url.split("/").length < 5 ? project.url.replace("https://github.com/", "https://github.com/EdamAme-x/") : project.url,
+			url:
+				project.url.split("/").length < 5
+					? project.url.replace("https://github.com/", "https://github.com/EdamAme-x/")
+					: project.url,
 			star: project.star,
 			description: project.description,
 		};
 	});
 
 	return data;
-}
+};
 
 const projects: pinnedCtx[] = await getProjects();
-
 ---
 
 <div class="w-full flex flex-col justify-center items-center mt-5">
@@ -33,9 +34,15 @@ const projects: pinnedCtx[] = await getProjects();
 	<div class="w-full flex flex-wrap justify-center items-center my-5 px-5 gap-4">
 		{
 			projects.map((project: pinnedCtx) => (
-				<a href={project.url} target="_blank" class="w-[300px] min-h-[130px] p-3 flex flex-col justify-start rounded-md bg-[hsl(var(--card))] border-2 border-[hsl(var(--border))]">
+				<a
+					href={project.url}
+					target="_blank"
+					class="w-[300px] min-h-[130px] px-4 py-3 relative flex flex-col justify-start rounded-md bg-[hsl(var(--card))] border-2 border-[hsl(var(--border))] bg-glow-effect"
+				>
 					<p class="w-full font-bold text-xl">{project.title}</p>
-					<p class={"w-full mt-1 " + (project.description.length > 75 ? "text-xs" : "text-sm")}>{project.description}</p>
+					<p class={"w-full mt-1 " + (project.description.length > 75 ? "text-xs" : "text-sm")}>
+						{project.description}
+					</p>
 					<p class="w-full mt-1 text-sm mt-auto">★ {project.star}</p>
 				</a>
 			))
@@ -47,3 +54,47 @@ const projects: pinnedCtx[] = await getProjects();
 		</a>
 	</div>
 </div>
+
+<style>
+	.bg-glow-effect:hover:after {
+		content: "";
+		position: absolute;
+		top: 1vw;
+		left: 0;
+		right: 0;
+		z-index: -1;
+		height: 100%;
+		width: 100%;
+		margin: 0 auto;
+		transform: scale(0.85, 0.6);
+		-webkit-filter: blur(5vw);
+		-moz-filter: blur(5vw);
+		-ms-filter: blur(5vw);
+		filter: blur(5vw);
+		background: linear-gradient(270deg, #0fffc1, #7e0fff);
+		background-size: 200% 200%;
+		animation: animateGlow 10s ease infinite, transitionGlow 0.5s ease 1;
+	}
+
+	@keyframes transitionGlow {
+		0% {
+			opacity: 0.05;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@keyframes animateGlow {
+		0% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
+	}
+</style>

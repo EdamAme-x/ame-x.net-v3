@@ -48,8 +48,7 @@ export function Timeline() {
 						icon: icon ?? "https://avatars.githubusercontent.com/u/121654029?v=4",
 						content: post.querySelector("description")?.textContent ?? "Faild to load",
 						date: post.querySelector("pubDate")?.textContent ?? "Faild to load",
-						url:
-							"https://twitter.com" + new URL(post.querySelector("link")?.textContent ?? "").pathname,
+						url: "https://twitter.com" + new URL(post.querySelector("link")?.textContent ?? "").pathname,
 					};
 				});
 
@@ -108,18 +107,18 @@ function TimelinePostHeader({ name, icon, date }: { name: string; icon: string; 
 
 function TimelinePostContent({ content }: { content: string }) {
 	const uuid = `__scoped_${crypto.randomUUID()}`;
-	return <>
-		 <div className="w-full mt-1 word-break" id={uuid} dangerouslySetInnerHTML={{ __html: content }}></div>
-		 <style>
-			{
-				`
+	return (
+		<>
+			<div className="w-full mt-1 word-break" id={uuid} dangerouslySetInnerHTML={{ __html: content }}></div>
+			<style>
+				{`
 					#${uuid} > * {
 						width: 100%;
 						max-width: 100%;
 						word-break: break-word;
 					}
-				`
-			}
-		 </style>
-	</>
+				`}
+			</style>
+		</>
+	);
 }
