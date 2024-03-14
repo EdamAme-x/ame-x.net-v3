@@ -11,4 +11,12 @@ export const navContext = [
 		title: "Articles",
 		href: "/articles",
 	},
+	{
+		title: "Projects",
+		href: "/projects",
+	},
+	{
+		title: "Request",
+		href: "/request",
+	}
 ];

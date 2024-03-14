@@ -1,0 +1,49 @@
+---
+import { Button } from "@/src/components/ui/button";
+
+const pinnedApi = "https://github-pinned-api.deno.dev/EdamAme-x";
+
+type pinnedCtx = {"title": string,
+"url": string,"star": string,"description":string}
+
+const getProjects = async (): Promise<pinnedCtx[]> => {
+	const response = await fetch(pinnedApi);
+	let data = await response.json();
+
+	// fix
+
+	data = data.map((project: pinnedCtx) => {
+		return {
+			title: project.title,
+			url: project.url.split("/").length < 5 ? project.url.replace("https://github.com/", "https://github.com/EdamAme-x/") : project.url,
+			star: project.star,
+			description: project.description,
+		};
+	});
+
+	return data;
+}
+
+const projects: pinnedCtx[] = await getProjects();
+
+---
+
+<div class="w-full flex flex-col justify-center items-center mt-5">
+	<h1 class="text-3xl font-bold mt-10">Projects</h1>
+	<div class="w-full flex flex-wrap justify-center items-center my-5 px-5 gap-4">
+		{
+			projects.map((project: pinnedCtx) => (
+				<a href={project.url} target="_blank" class="w-[300px] min-h-[130px] p-3 flex flex-col justify-start rounded-md bg-[hsl(var(--card))] border-2 border-[hsl(var(--border))]">
+					<p class="w-full font-bold text-xl">{project.title}</p>
+					<p class={"w-full mt-1 " + (project.description.length > 75 ? "text-xs" : "text-sm")}>{project.description}</p>
+					<p class="w-full mt-1 text-sm mt-auto">★ {project.star}</p>
+				</a>
+			))
+		}
+	</div>
+	<div class="w-full flex flex-col justify-center items-center my-5 px-5">
+		<a href="https://github.com/EdamAme-x?tab=repositories" target="_blank">
+			<Button client:idle>See more</Button>
+		</a>
+	</div>
+</div>

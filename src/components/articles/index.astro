@@ -18,7 +18,7 @@ const getArticles = async () => {
 	return data.articles;
 };
 
-const articles: Article[] = (await getArticles()).map(article => {
+const articles: Article[] = (await getArticles()).map((article: any) => {
 	return {
 		title: article.title,
 		emoji: article.emoji,
@@ -39,9 +39,9 @@ const articles: Article[] = (await getArticles()).map(article => {
 					<a
 						href={article.url}
 						target="_blank"
-						class="w-[300px] min-h-[225px] flex flex-col justify-start items-center bg-[hsl(var(--card))] rounded-lg"
+						class="w-[300px] min-h-[225px] flex flex-col justify-start items-center bg-[hsl(var(--card))] border-2 border-[hsl(var(--border))] rounded-lg"
 					>
-						<div class="w-full h-[125px] flex flex-col justify-center items-center p-2 bg-[hsl(var(--foreground))] rounded-t-lg">
+						<div class="w-full h-[125px] flex flex-col justify-center items-center p-2 bg-[hsl(var(--foreground))] border-2 border-[hsl(var(--foreground))] rounded-t-lg">
                             <div class="transform scale-[3]">{article.emoji}</div>    
                             <div class="relative bottom-1/2 left-[40%]">
                                 <Badge client:load className={article.tags === "tech" ? "bg-rose-500" : "bg-sky-500 hover:bg-sky-600"}>
