@@ -1,5 +1,6 @@
 ---
 import { Button } from "@/src/components/ui/button";
+import { BackgroundNyanCatParticle } from "./backgroundNyanCat";
 
 const pinnedApi = "https://github-pinned-api.deno.dev/EdamAme-x";
 
@@ -28,7 +29,7 @@ const getProjects = async (): Promise<pinnedCtx[]> => {
 
 const projects: pinnedCtx[] = await getProjects();
 ---
-
+<BackgroundNyanCatParticle client:idle />
 <div class="w-full flex flex-col justify-center items-center mt-5">
 	<h1 class="text-3xl font-bold mt-10">Projects</h1>
 	<div class="w-full flex flex-wrap justify-center items-center my-5 px-5 gap-4">
@@ -51,6 +52,11 @@ const projects: pinnedCtx[] = await getProjects();
 	<div class="w-full flex flex-col justify-center items-center my-5 px-5">
 		<a href="https://github.com/EdamAme-x?tab=repositories" target="_blank">
 			<Button client:idle>See more</Button>
+		</a>
+	</div>
+	<div class="w-full flex flex-col justify-center items-center my-5 px-5">
+		<a href="https://github.com/EdamAme-x" target="_blank">
+			<Button className="bg-sky-500 hover:bg-sky-600" client:idle>Follow on GitHub 🐈</Button>	
 		</a>
 	</div>
 </div>

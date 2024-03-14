@@ -24,8 +24,8 @@ export function Cando() {
 								{candoList.map((cando, index) => (
 									<CarouselItem key={index} className="basis-full md:basis-1/2">
 										<div className="p-1">
-											<Card>
-												<CardContent className="flex flex-col justify-center aspect-square">
+											<Card className="bg-[hsl(var(--background))] bg-opacity-75">
+												<CardContent className="flex flex-col justify-center aspect-[4/3]">
 													<Label className="text-xl font-bold mt-4">{cando.title}</Label>
 													<hr className="mt-1" />
 													<div className="mt-3 text-xs sm:text-sm leading-5">
