@@ -1,4 +1,6 @@
-# amex.net-v3
+# ame-x.net-v3
+
+state of completion : 45% 
 
 coming soon... (定期テストによる没収の為)
 
