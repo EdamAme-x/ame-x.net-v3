@@ -1,8 +1,6 @@
 # ame-x.net-v3
 
-state of completion : 45% 
-
-coming soon... (定期テストによる没収の為)
+作成中
 
 built with ❤ and 🦕 Deno and @amex2189 's tech
 
