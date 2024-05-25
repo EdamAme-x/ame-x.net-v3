@@ -29,11 +29,11 @@ jobs:
           node-version: lts/*
 
       - name: Build step
-        run: "npm install --legacy-peer-deps && npm run build" # 📝 Update the build command(s) if necessary
+        run: "npm install --legacy-peer-deps && npm run build" # ð Update the build command(s) if necessary
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: "ame-x-net-preview"
           entrypoint: server/entry.mjs
-          root: "dist" # 📝 Update the root if necessary
+          root: "dist" # ð Update the root if necessary
