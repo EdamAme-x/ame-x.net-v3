@@ -65,7 +65,7 @@ export function Timeline() {
 	}, []);
 
 	return (
-		<div className="w-full px-5 relative z-[3]">
+		<div className="w-3/4 md:w-1/2 px-5 relative z-[3]">
 			{posts.map(post => (
 				<Fragment key={post.url}>
 					<TimelinePost

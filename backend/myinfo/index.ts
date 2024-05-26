@@ -10,7 +10,6 @@ export const myinfoRouter = (router: Hono) => {
 			zennId: `@ame_x`,
 			message: `please follow me on Twitter @amex2189 :)`,
 			age: 14,
-			ltc: "ltc1qj3f3ragm568j7lw062743w6r4k7n929ddjgq6r",
 		}),
 	);
 

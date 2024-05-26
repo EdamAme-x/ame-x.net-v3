@@ -1,5 +1,6 @@
 ---
 import { Button } from "@/src/components/ui/button";
+import { Separator } from "@/src/components/ui/separator";
 
 const pinnedApi = "https://github-pinned-api.deno.dev/EdamAme-x";
 
@@ -51,6 +52,21 @@ const projects: pinnedCtx[] = await getProjects();
 		<a href="https://github.com/EdamAme-x?tab=repositories" target="_blank">
 			<Button client:idle>See more</Button>
 		</a>
+	</div>
+	<Separator client:idle />
+	<div class="w-full flex flex-col items-center mt-5">
+		<h2 class="text-3xl font-bold">About my skills</h2>
+		<div class="text-md mt-5 dark:text-gray-500">
+			<p>
+				I have some skills of web development and some enviroment.
+			</p>
+			<p>
+				For instance, <span class="text-red-500">Deno</span>, <span class="text-purple-500">Node.js</span>, <span class="text-blue-500">Bun</span> and <span class="text-gray-600">GitHub</span>...
+			</p>
+			<p>
+				If you want to know more, let's see my <a class="text-blue-400" href="https://github.com/EdamAme-x" target="_blank">GitHub</a>.
+			<p>
+		</div>
 	</div>
 </div>
 
