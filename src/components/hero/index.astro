@@ -38,7 +38,32 @@ import { ProfessionTyper } from "./professionTyper";
 	@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 
 	.text-gradient {
-		@apply from-red-400 to-blue-400 bg-gradient-to-r bg-clip-text text-transparent;
+		background-image: linear-gradient(
+			45deg,
+			#df2b2b,
+			#d748ff,
+			#6abeff
+		);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		-moz-background-clip: text;
+		-moz-text-fill-color: transparent;
+		-ms-background-clip: text;
+		-ms-text-fill-color: transparent;
+		-o-background-clip: text;
+		-o-text-fill-color: transparent;
+		background-clip: text;
+		animation: hue-rotate 60s infinite linear;
+	}
+
+	@keyframes hue-rotate {
+		from {
+			filter: hue-rotate(0);
+		}
+
+		to {
+			filter: hue-rotate(360deg);
+		}
 	}
 
 	.text-raleway {
