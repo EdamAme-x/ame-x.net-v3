@@ -1,6 +1,7 @@
 ---
 import { Button } from "@/src/components/ui/button";
 import { Separator } from "@/src/components/ui/separator";
+import { FolderGit2 } from "lucide-react";
 
 const pinnedApi = "https://github-pinned-api.deno.dev/EdamAme-x";
 
@@ -29,8 +30,14 @@ const getProjects = async (): Promise<pinnedCtx[]> => {
 
 const projects: pinnedCtx[] = await getProjects();
 ---
+
 <div class="w-full flex flex-col justify-center items-center mt-5">
-	<h1 class="text-3xl font-bold mt-10">Projects</h1>
+	<h1
+		class="text-3xl flex justify-center gap-x-3 items-center font-bold mt-10 boreder rounded-md border-2 border-[hsl(var(--border))] px-3 py-2"
+	>
+		<FolderGit2 client:load />
+		Projects
+	</h1>
 	<div class="w-full flex flex-wrap justify-center items-center my-5 px-5 gap-4">
 		{
 			projects.map((project: pinnedCtx) => (
@@ -54,6 +61,12 @@ const projects: pinnedCtx[] = await getProjects();
 		</a>
 	</div>
 	<Separator client:idle />
+	<div class="mt-5 flex flex-col justify-center items-center gap-y-4">
+		<p>If you have any request for me, please tell me it on <span class="text-blue-400">DMS of Twitter</span></p>
+		<img src="/assets/header.png" height="300" />
+	</div>
+	<!-- 
+	// NOTE: FIXED
 	<div class="w-full flex flex-col items-center mt-5">
 		<h2 class="text-3xl font-bold">About my skills</h2>
 		<div class="text-md mt-5 dark:text-gray-500">
@@ -67,7 +80,7 @@ const projects: pinnedCtx[] = await getProjects();
 				If you want to know more, let's see my <a class="text-blue-400" href="https://github.com/EdamAme-x" target="_blank">GitHub</a>.
 			<p>
 		</div>
-	</div>
+	</div> -->
 </div>
 
 <style>
@@ -88,7 +101,9 @@ const projects: pinnedCtx[] = await getProjects();
 		filter: blur(5vw);
 		background: linear-gradient(270deg, #0fffc1, #7e0fff);
 		background-size: 200% 200%;
-		animation: animateGlow 10s ease infinite, transitionGlow 0.5s ease 1;
+		animation:
+			animateGlow 10s ease infinite,
+			transitionGlow 0.5s ease 1;
 	}
 
 	@keyframes transitionGlow {

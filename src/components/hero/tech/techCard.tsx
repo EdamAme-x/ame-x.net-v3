@@ -71,7 +71,7 @@ export function TechCard() {
 						<Progress value={95 + hev} className="w-full" />
 					</div>
 				</div>
-				<a href="/projects">
+				<a href="/profile">
 					<Button variant="outline">See more</Button>
 				</a>
 			</CardContent>

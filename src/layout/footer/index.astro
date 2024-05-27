@@ -1,5 +1,8 @@
 ---
 import { Image } from "astro:assets";
+
+const emojiList = ["❤", "💋", "🔥", "😆", "🫰"];
+const emoji = emojiList[Math.floor(Math.random() * emojiList.length)];
 ---
 
 <footer
@@ -10,7 +13,7 @@ import { Image } from "astro:assets";
 >
 	<div class="flex justify-center">
 		<p>
-			Built with ❤ by <a
+			Built with <span>{emoji}</span> by <a
 				href="https://twitter.com/amex2189"
 				target="_blank"
 				rel="noopener noreferrer"

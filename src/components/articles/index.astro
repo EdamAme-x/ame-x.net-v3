@@ -1,5 +1,6 @@
 ---
 import { Badge } from "@/src/components/ui/badge";
+import { BookMarked } from "lucide-react";
 
 const api = "https://zenn.dev/api/articles?username=ame_x&count=1000&order=latest";
 
@@ -31,7 +32,12 @@ const articles: Article[] = (await getArticles()).map((article: any) => {
 ---
 
 <div class="w-full flex flex-col justify-center items-center mt-5">
-	<h1 class="text-3xl font-bold mt-10">Articles</h1>
+	<h1
+		class="text-3xl flex justify-center gap-x-3 items-center font-bold mt-10 boreder rounded-md border-2 border-[hsl(var(--border))] px-3 py-2"
+	>
+		<BookMarked client:load />
+		Articles
+	</h1>
 	<div class="w-full flex flex-wrap justify-center items-center my-5 px-5 gap-4">
 		{
 			articles.map(article => {
